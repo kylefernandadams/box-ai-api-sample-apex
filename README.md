@@ -1,18 +1,50 @@
-# Salesforce DX Project: Next Steps
+# BoxAI Sample Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Pre-Requisites
 
-## How Do You Plan to Deploy Your Changes?
+1. Clone this github repo.
+2. Setup your Salesforce DX environment: https://trailhead.salesforce.com/en/content/learn/projects/quick-start-salesforce-dx/set-up-your-salesforce-dx-environment
+3. Setup VS Code: https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/set-up-visual-studio-code
+4. (Optional) Install and Configure the Box for Salesforce Managed Package: https://community.box.com/t5/How-to-Guides-for-Integrations/Installing-and-Configuring-Box-For-Salesforce/ta-p/180
+    > Note: This is needed to interact with the box__FRUP_c records. If you do not need this capability, feel free to adapt the code as you see fit. 
+    > Note: Dont forget to add the Box Lightning components to each of the record type layouts.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+5. (Optional) Manual create a folder from a given sample record
+6. Open the source from this repo in VS Code.
+7. Create a [Custom Box App](https://developer.box.com/guides/authentication/client-credentials/) with Client Credentials Auth
+8. In Salesforce Setup, go to [Process Automation > Flows](https://login.salesforce.com/lightning/setup/Flows/home) and Open the BoxAI Flow Template
+9. Update the BoxAccessToken variable and File ID.
+10. Run the flow in Debug Mode
+11.  In VS Code, use the cmd+shift+p shortcut and select SFDX: Authorize Org
+12. Confirm you've successfully authorized your org by listing orgs and their associated status:
+```
+sfdx org list
+```
+13.  List the installed packaged for your org:
+```
+sfdx package installed list -u <username@domain.com>
+```
+14.   Deploy you project source to either you scratch org or developer org in the next section.
 
-## Configure Your Salesforce DX Project
+## Deploy to your Org
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Deploy to Developer/Production Org:
+```
+sfdx project deploy start -o <username@domain.com>
+```
 
-## Read All About It
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## Disclaimer
+This project is a collection open source examples and should not be treated as an officially supported product. Use at your own risk. If you encounter any problems, please log an [issue](https://github.com/kylefernandadams/box-ai-api-sample-apex/issues).
+
+## License
+ 
+The MIT License (MIT)
+
+Copyright (c) 2023 Kyle Adams
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
