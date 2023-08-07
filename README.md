@@ -12,26 +12,22 @@
 5. (Optional) Manual create a folder from a given sample record
 6. Open the source from this repo in VS Code.
 7. Create a [Custom Box App](https://developer.box.com/guides/authentication/client-credentials/) with Client Credentials Auth
-8. In Salesforce Setup, go to [Process Automation > Flows](https://login.salesforce.com/lightning/setup/Flows/home) and Open the BoxAI Flow Template
-9. Update the BoxAccessToken variable and File ID.
-10. Run the flow in Debug Mode
-11.  In VS Code, use the cmd+shift+p shortcut and select SFDX: Authorize Org
-12. Confirm you've successfully authorized your org by listing orgs and their associated status:
+8. Run the flow in Debug Mode
+9.  In VS Code, use the cmd+shift+p shortcut and select SFDX: Authorize Org
+10. Confirm you've successfully authorized your org by listing orgs and their associated status:
 ```
 sfdx org list
 ```
-13.  List the installed packaged for your org:
+11.  List the installed packaged for your org:
 ```
 sfdx package installed list -u <username@domain.com>
 ```
-14.   Deploy you project source to either you scratch org or developer org in the next section.
-
-## Deploy to your Org
-
-Deploy to Developer/Production Org:
+12.   Deploy you project source to either your Salesforce Org.
 ```
 sfdx project deploy start -o <username@domain.com>
 ```
+13. In Salesforce Setup, go to [Process Automation > Flows](https://login.salesforce.com/lightning/setup/Flows/home) and Open the BoxAI Flow Template
+14. Update the BoxAccessToken variable, save, and run the Flow in Debug mode.
 
 
 ## Disclaimer
